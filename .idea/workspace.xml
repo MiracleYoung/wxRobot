@@ -18,29 +18,25 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/wx/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="19" selection-start-line="19" selection-end-line="19" selection-end-column="20" />
+            <state relative-caret-position="182">
+              <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
               <folding>
-                <element signature="e#116#129#0" expanded="true" />
+                <element signature="e#117#133#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="msg.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/notes/msg.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="970">
-              <caret line="105" column="12" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="msg_type.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/notes/msg_type.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+      <file leaf-file-name="API.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/doc/API.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="168">
+                <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
             </state>
           </provider>
         </entry>
@@ -54,6 +50,15 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>get_articles</find>
+      <find>get_latest_article</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>get_articles_list</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -66,6 +71,7 @@
         <option value="$PROJECT_DIR$/wechat/app.py" />
         <option value="$PROJECT_DIR$/../WX_QQ_Robot/lib/mail.py" />
         <option value="$PROJECT_DIR$/../WX_QQ_Robot/wechat/app.py" />
+        <option value="$PROJECT_DIR$/../WX_QQ_Robot/doc/API.md" />
         <option value="$PROJECT_DIR$/../WX_QQ_Robot/wx/app.py" />
       </list>
     </option>
@@ -114,6 +120,11 @@
             <path>
               <item name="Wechat_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
               <item name="WX_QQ_Robot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wechat_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WX_QQ_Robot" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Wechat_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
@@ -238,21 +249,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32948717" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.3628205" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32948717" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25107297" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32948717" />
       <window_info anchor="right" id="SciView" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39871794" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39871794" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -261,7 +272,6 @@
       <window_info anchor="right" id="Data View" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +285,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/../WX_QQ_Robot/wx/app.py</url>
-          <line>19</line>
+          <line>24</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
@@ -313,6 +323,13 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
+    <expressions id="setValue">
+      <expression>
+        <expression-string>ret.json()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/wx/app.py">
@@ -320,7 +337,7 @@
         <state relative-caret-position="17">
           <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
           <folding>
-            <element signature="e#116#129#0" expanded="true" />
+            <element signature="e#117#133#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -353,13 +370,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/notes/msg_type.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/lib/mail.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -374,13 +384,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/notes/msg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="970">
-          <caret line="105" column="12" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.pyenv/versions/Wechat_QQ_Robot/lib/python3.6/site-packages/itchat/core.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -388,12 +391,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/notes/msg_type.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/notes/msg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="970">
+          <caret line="105" column="12" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/doc/API.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="168">
+            <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/wx/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="19" selection-start-line="19" selection-end-line="19" selection-end-column="20" />
+        <state relative-caret-position="182">
+          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
           <folding>
-            <element signature="e#116#129#0" expanded="true" />
+            <element signature="e#117#133#0" expanded="true" />
           </folding>
         </state>
       </provider>
