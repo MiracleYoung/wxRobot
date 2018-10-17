@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/WX_QQ_Robot.iml" filepath="$PROJECT_DIR$/.idea/WX_QQ_Robot.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Wechat_QQ_Robot.iml" filepath="$PROJECT_DIR$/.idea/Wechat_QQ_Robot.iml" />
     </modules>
   </component>

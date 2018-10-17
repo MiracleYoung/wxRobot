@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6fa8b45-467a-41df-93bb-40aea8930999" name="Default" comment="" />
+    <list default="true" id="d6fa8b45-467a-41df-93bb-40aea8930999" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/WX_QQ_Robot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WX_QQ_Robot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wx/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/wx/app.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,33 +16,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Wechat_QQ_Robot$app__1_.coverage" NAME="app (1) Coverage Results" MODIFIED="1530829628092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../WX_QQ_Robot/wx" />
+    <SUITE FILE_PATH="coverage/Wechat_QQ_Robot$app__1_.coverage" NAME="app (1) Coverage Results" MODIFIED="1531118182136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/wx" />
     <SUITE FILE_PATH="coverage/Wechat_QQ_Robot$app.coverage" NAME="app Coverage Results" MODIFIED="1523152104393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/wechat" />
+    <SUITE FILE_PATH="coverage/Wechat_QQ_Robot$test.coverage" NAME="test Coverage Results" MODIFIED="1531118424084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/unit_test" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/wx/app.py">
+        <entry file="file://$PROJECT_DIR$/wx/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+            <state relative-caret-position="492">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="e#117#133#0" expanded="true" />
+                <marker date="1539784536140" expanded="true" signature="804:809" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="API.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/doc/API.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="168">
-                <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
+      <file leaf-file-name="gzh.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wx/gzh.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -69,10 +72,12 @@
         <option value="$PROJECT_DIR$/notes/msg.js" />
         <option value="$PROJECT_DIR$/notes/msg_type.py" />
         <option value="$PROJECT_DIR$/wechat/app.py" />
-        <option value="$PROJECT_DIR$/../WX_QQ_Robot/lib/mail.py" />
-        <option value="$PROJECT_DIR$/../WX_QQ_Robot/wechat/app.py" />
-        <option value="$PROJECT_DIR$/../WX_QQ_Robot/doc/API.md" />
-        <option value="$PROJECT_DIR$/../WX_QQ_Robot/wx/app.py" />
+        <option value="$PROJECT_DIR$/lib/mail.py" />
+        <option value="$PROJECT_DIR$/wechat/app.py" />
+        <option value="$PROJECT_DIR$/doc/API.md" />
+        <option value="$PROJECT_DIR$/unit_test/test.py" />
+        <option value="$PROJECT_DIR$/wx/gzh.py" />
+        <option value="$PROJECT_DIR$/wx/app.py" />
       </list>
     </option>
   </component>
@@ -118,36 +123,16 @@
         <subPane>
           <expand>
             <path>
-              <item name="Wechat_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WX_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
               <item name="WX_QQ_Robot" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Wechat_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WX_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
               <item name="WX_QQ_Robot" type="462c0819:PsiDirectoryNode" />
               <item name="doc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Wechat_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WX_QQ_Robot" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Wechat_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WX_QQ_Robot" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Wechat_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WX_QQ_Robot" type="462c0819:PsiDirectoryNode" />
-              <item name="notes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Wechat_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WX_QQ_Robot" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Wechat_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WX_QQ_Robot" type="b2602c69:ProjectViewProjectNode" />
               <item name="WX_QQ_Robot" type="462c0819:PsiDirectoryNode" />
               <item name="wx" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -184,7 +169,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.app (1)">
+  <component name="RunManager" selected="Python.test">
     <configuration name="app (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="WX_QQ_Robot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -193,12 +178,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../WX_QQ_Robot/wx" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wx" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../WX_QQ_Robot/wx/app.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wx/app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -223,12 +208,33 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="WX_QQ_Robot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/unit_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/unit_test/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list>
       <item itemvalue="Python.app" />
       <item itemvalue="Python.app (1)" />
+      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.app (1)" />
         <item itemvalue="Python.app" />
       </list>
@@ -248,20 +254,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.3628205" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.3628205" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32948717" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25107297" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2546495" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32948717" />
-      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39871794" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -272,6 +277,7 @@
       <window_info anchor="right" id="Data View" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32948717" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,24 +290,26 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../WX_QQ_Robot/wx/app.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/unit_test/test.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="4" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="msg" language="Python" />
-        <watch expression="msg['Text']" language="Python" />
-        <watch expression="msg['User']['NickName']" language="Python" />
-        <watch expression="msg['ActualNickName']" language="Python" />
+        <watch expression="lst" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>lst</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>msg['User']['NickName']</expression-string>
         <language-id>Python</language-id>
@@ -332,12 +340,43 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/wx/app.py">
+    <entry file="file://$PROJECT_DIR$/wx/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2193">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+          <folding>
+            <element signature="e#117#133#0" expanded="true" />
+            <marker date="1539784536140" expanded="true" signature="804:809" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/API.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="612">
+            <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unit_test/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
           <folding>
             <element signature="e#117#133#0" expanded="true" />
+            <marker date="1539784536140" expanded="true" signature="804:809" ph="..." />
           </folding>
         </state>
       </provider>
@@ -349,14 +388,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/notes/msg.js">
+    <entry file="file://$PROJECT_DIR$/notes/msg.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1785">
           <caret line="105" column="12" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/notes/msg_type.py">
+    <entry file="file://$PROJECT_DIR$/notes/msg_type.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
@@ -370,7 +409,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/lib/mail.py">
+    <entry file="file://$PROJECT_DIR$/lib/mail.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
@@ -391,7 +430,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/README.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -401,24 +440,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/notes/msg_type.py">
+    <entry file="file://$PROJECT_DIR$/notes/msg_type.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/notes/msg.js">
+    <entry file="file://$PROJECT_DIR$/notes/msg.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="970">
           <caret line="105" column="12" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/doc/API.md">
+    <entry file="file://$PROJECT_DIR$/doc/API.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="168">
+          <first_editor relative-caret-position="513">
             <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
           </first_editor>
           <second_editor>
@@ -427,12 +466,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../WX_QQ_Robot/wx/app.py">
+    <entry file="file://$PROJECT_DIR$/unit_test/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx/wx_instance.pkl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx/QR.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx/gzh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="e#117#133#0" expanded="true" />
+            <marker date="1539784536140" expanded="true" signature="804:809" ph="..." />
           </folding>
         </state>
       </provider>
