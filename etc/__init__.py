@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# encoding: utf-8
-# @Time    : 2018/4/8 上午9:11
-# @Author  : MiracleYoung
-# @File    : __init__.py.py
+#/usr/bin/env python
+# Created by Miracle at 9/11/18
+
+from .base_cfg import *
