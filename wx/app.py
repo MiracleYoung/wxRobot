@@ -29,7 +29,7 @@ def group_filter(msg):
             from_user = msg['ActualNickName']
             from_group = msg['User']['NickName']
             text = msg['Text']
-            instance._send_msg(f'{from_group} 的 {from_user} 发送了一条part time: {text}', toUserName='filehelper')
+            instance.send_msg(f'{from_group} 的 {from_user} 发送了一条part time: {text}', toUserName='filehelper')
 
     return
 
@@ -41,7 +41,7 @@ def file_helper(res):
     if msg == 'm':
         return fh.usage
     if msg == 'mass text':
-        return fh.mass_text()
+        return fh.exec(msg)
     else:
         return fh.exec(msg)
 
