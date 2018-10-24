@@ -4,81 +4,63 @@
 
 __author__ = 'MiracleYoung'
 
-from functools import wraps, partial
-import logging
+import functools, threading, time
+import itchat
+from itchat.content import *
+
+instance = itchat.new_instance()
 
 
-# Utility decorator to attach a function as an attribute of obj
-def attach_wrapper(obj, func=None):
-    if func is None:
-        return partial(attach_wrapper, obj)
-    setattr(obj, func.__name__, func)
-    return func
+class FileHelper:
+    def __init__(self, instance):
+        self.instance = instance
+        self.th = threading.Thread(target=self.update_chatrooms, args=())
+        self.th.start()
+
+    def update_chatrooms(self):
+        while True:
+            self.groups = []
+            all = self.instance.get_chatrooms()
+            for group in all:
+                self.groups.append(group.UserName)
+            print(len(self.groups))
+            time.sleep(30)
 
 
-def logged(level, name=None, message=None):
-    '''
-    Add logging to a function. level is the logging
-    level, name is the logger name, and message is the
-    log message. If name and message aren't specified,
-    they default to the function's module and name.
-    '''
-
-    def decorate(func):
-        logname = name if name else func.__module__
-        log = logging.getLogger(logname)
-        logmsg = message if message else func.__name__
-
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            log.log(level, logmsg)
-            return func(*args, **kwargs)
-
-        # Attach setter functions
-        @attach_wrapper(wrapper)
-        def set_level(newlevel):
-            nonlocal level
-            level = newlevel
-
-        @attach_wrapper(wrapper)
-        def set_message(newmsg):
-            nonlocal logmsg
-            logmsg = newmsg
-
-        return wrapper
-
-    return decorate
+@instance.msg_register([FRIENDS], isFriendChat=True)
+def friends(res):
+    msg = res['Text']
+    try:
+        # add friends
+        if res['MsgType'] == 51 and res['Status'] == 3 and res['StatusNotifyCode'] == 5:
+            # TODO
+            # add friends
+            to_user = res.ToUserName
+            instance.add_friend(userName=to_user, status=3)
+            instance.send_msg('''
+                由于人数已满100，回复：“技术群”，拉你入群。
+                知识星球内有「Python原创」、「大航海计划」、「问题解答」、「面试刷题」、「大厂内推」、「技术分享」等，在这个星球能够得到的，不只是关于Python，圈子、人脉、资源，学习氛围，眼界都是比技术更值得去借鉴的东西。
+                如果想要加入知识星球的话，可以回复“知识星球”
+            ''', to_user=to_user)
+            print('已添加好友')
+    except AttributeError:
+        pass
 
 
-# Example use
-@logged(logging.DEBUG)
-def add(x, y):
-    return x + y
+@instance.msg_register([TEXT], isFriendChat=True)
+def auto_reply(res):
+    msg = res['Text']
+    from_user = res['User']
+    if msg == '技术群':
+        instance.add_member_into_chatroom(instance.search_chatrooms('测试群2')[0].UserName,
+                                          memberList=[from_user])
+    elif msg == '知识星球':
+        instance.send_image('./textpng.png', toUserName=from_user)
+    else:
+        pass
 
 
-@logged(logging.CRITICAL, 'example')
-def spam():
-    print('Spam!')
+fh = FileHelper(instance)
 
-
-if __name__ == "__main__":
-    # import logging
-    #     #
-    #     # logging.basicConfig(level=logging.DEBUG)
-    #     # # add(2, 3)
-    #     # add.set_message('Add called')
-    #     # add(2, 3)
-
-    import asyncio
-
-
-    async def fn(s):
-        print('fn start')
-        await asyncio.sleep(s)
-        print('fn stop')
-
-
-    loop = asyncio.get_event_loop()
-    tasks = [fn(3), ]
-    loop.run_until_complete(asyncio.wait(tasks))
-
+instance.auto_login(hotReload=True)
+instance.run()

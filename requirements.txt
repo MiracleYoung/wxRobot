@@ -1,0 +1,10 @@
+certifi==2018.10.15
+chardet==3.0.4
+future==0.16.0
+idna==2.7
+itchat==1.2.32
+pypng==0.0.18
+PyQRCode==1.2.1
+requests==2.19.1
+urllib3==1.23
+wxpy==0.3.9.8

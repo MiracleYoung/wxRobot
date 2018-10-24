@@ -4,9 +4,11 @@
 
 import os
 
-PROJ_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LOG_DIR = os.path.join(PROJ_DIR, 'log')
-TMP_DIR = os.path.join(PROJ_DIR, 'tmp')
+PROJ_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOG_DIR = os.path.join(PROJ_ROOT, 'log')
+TMP_DIR = os.path.join(PROJ_ROOT, 'tmp')
+STATIC_ROOT = os.path.join(PROJ_ROOT, 'static')
+WX_IMG_DIR = os.path.join(STATIC_ROOT, 'img/app')
 
 DEFAULT_LOGGING = {
     'version': 1,
