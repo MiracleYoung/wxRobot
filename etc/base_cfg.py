@@ -1,6 +1,8 @@
-# /usr/bin/env python
-# Created by Miracle at 9/11/18
+#!/usr/bin/env python
+# encoding: utf-8
+# @Time    : 2018/10/17 上午6:26
 
+__author__ = 'Miracle'
 
 import os
 

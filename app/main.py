@@ -1,17 +1,18 @@
 #!/usr/bin/env python
 # encoding: utf-8
-# @Time    : 2018/4/8 上午9:14
-# @Author  : MiracleYoung
-# @File    : main.py
+# @Time    : 2018/10/17 上午6:26
 
+__author__ = 'Miracle'
+
+import sys, os
+
+sys.path.append(os.path.dirname(os.getcwd()))
 
 from itchat.content import *
 
 from core import fh, friend
 from utility import *
 from etc import *
-
-is_open = False  # 全局变量，开启robot开关
 
 
 @instance.msg_register([FRIENDS], isFriendChat=True)
@@ -22,7 +23,7 @@ def friends(res):
         msg = res['RecommendInfo']['Content']
         username = res['RecommendInfo']['UserName']
         nickname = res['RecommendInfo']['NickName']
-        add_ret = friend.add_friend(username, 3)
+        add_ret = instance.add_friend(username, 3)
         if add_ret['BaseResponse']['ErrMsg'] == '请求成功':
             print(f'已添加好友: {nickname}')
             instance.send_msg(friend.meta['extra']['welcome'], username)
@@ -63,10 +64,6 @@ def file_helper(res):
         if fh.current_cmd:
             eval(f'fh.{fh.current_cmd}')(msg)
             return
-        # if msg == 'mass text ul':
-        #     return fh.mass_text_ul(msg)
-        # else:
-        #     return
 
 
 instance.auto_login(hotReload=True, statusStorageDir=os.path.join(TMP_DIR, 'wx_instance.pkl'))

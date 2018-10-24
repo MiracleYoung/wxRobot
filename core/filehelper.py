@@ -41,10 +41,6 @@ class FileHelper(BaseHandle):
         self._th_update = threading.Thread(target=self._update_meta, args=(), daemon=True)
         self.auto_update_groups()
 
-    @property
-    def meta(self):
-        return self._meta
-
     def auto_update_groups(self):
         self._th_update.start()
 
