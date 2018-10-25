@@ -6,8 +6,8 @@ __author__ = 'MiracleYoung'
 
 import functools, time, random, threading
 
-from core import *
-from etc.wx_cfg import RESTRICT_GROUP, LIMIT_GROUP, instance
+from core.base import BaseHandle
+from etc import RESTRICT_GROUP, LIMIT_GROUP, instance
 
 __all__ = ['fh']
 

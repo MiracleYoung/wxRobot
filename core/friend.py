@@ -4,7 +4,7 @@
 
 __author__ = 'MiracleYoung'
 
-from .base import BaseHandle
+from core.base import BaseHandle
 from etc import FRIEND_ASK_KW
 
 __all__ = ['friend']

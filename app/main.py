@@ -6,13 +6,13 @@ __author__ = 'Miracle'
 
 import sys, os
 
-sys.path.append(os.path.dirname(os.getcwd()))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from itchat.content import *
 
 from core import fh, friend
-from utility import *
-from etc import *
+from utility import g_is_open
+from etc import instance, WX_IMG_DIR, TMP_DIR
 
 
 @instance.msg_register([FRIENDS], isFriendChat=True)
@@ -66,5 +66,10 @@ def file_helper(res):
             return
 
 
-instance.auto_login(hotReload=True, statusStorageDir=os.path.join(TMP_DIR, 'wx_instance.pkl'))
-instance.run()
+if __name__ == '__main__':
+    instance.auto_login(
+        hotReload=True,
+        statusStorageDir=os.path.join(TMP_DIR, 'wx_instance.pkl'),
+        picDir=os.path.join(TMP_DIR, 'QR.png')
+    )
+    instance.run()
