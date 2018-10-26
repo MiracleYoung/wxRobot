@@ -8,12 +8,17 @@ import functools, time, random, threading
 
 from core import *
 from etc.wx_cfg import RESTRICT_GROUP, LIMIT_GROUP, instance
+from utility import logger
 
 __all__ = ['fh']
 
 
 class FileHelper(BaseHandle):
     _usage = '''
+    Miracle wxRobot 操作说明
+    ro: 开启机器人
+    rc: 关闭机器人
+    <action> <type> <object>: 指令集，例如,mass text ul
     '''
 
     def __init__(self):
@@ -38,8 +43,9 @@ class FileHelper(BaseHandle):
                 'article': '请输入要群发的文章链接',
             }
         }
-        self._th_update = threading.Thread(target=self._update_meta, args=(), daemon=True)
+        self._th_update = threading.Thread(target=self._update_meta, args=(), daemon=True, name='Thead-UpdateGroup')
         self.auto_update_groups()
+        self._th_round = threading.Thread(daemon=True, name='Thread-Round')
 
     @property
     def meta(self):
@@ -90,11 +96,13 @@ class FileHelper(BaseHandle):
                 self._meta['obj']['ul'] = []
                 self._meta['obj']['r'] = []
 
-            print(len(self._meta['obj']['ul']))
-
     def update_cmd(self, cmd):
-        _action, _reply, _obj = cmd.split('_')
-        self._meta['action'][_action] = True
+        try:
+            _action, _reply, _obj = cmd.split('_')
+            self._meta['action'][_action] = True
+        except (ValueError, KeyError) as e:
+            logger.error(f'cmd is wrong: {cmd}', exc_info=e)
+            return
         self.current_cmd = cmd
         instance.send_msg(self._meta['reply'][_reply], self._meta['extra']['UserName'])
 

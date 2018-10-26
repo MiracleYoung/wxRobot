@@ -24,7 +24,7 @@ def friends(res):
         nickname = res['RecommendInfo']['NickName']
         add_ret = friend.add_friend(username, 3)
         if add_ret['BaseResponse']['ErrMsg'] == '请求成功':
-            print(f'已添加好友: {nickname}')
+            logger.info(f'已添加好友: {nickname}')
             instance.send_msg(friend.meta['extra']['welcome'], username)
             # 修改备注
             # 若有商务、合作等关键字，备注: 商务-
@@ -35,7 +35,7 @@ def friends(res):
                 instance.set_alias(username, f'python专栏-{nickname}')
             instance.send_msg(f'添加好友: {nickname} 成功。', 'filehelper')
         else:
-            print(f'添加好友失败: {nickname}')
+            logger.info(f'添加好友失败: {nickname}')
 
     except Exception:
         pass
@@ -47,11 +47,14 @@ def file_helper(res):
     msg = res['Text']
     from_user = res['FromUserName']
     to_user = res['ToUserName']
+    if msg == 'm':
+        instance.send_msg(fh.usage, from_user)
+        return
     if msg == '技术群':
-        instance.send_msg('晚些我会统一拉你们入群～', to_user=from_user)
+        instance.send_msg('晚些我会统一拉你们入群～', from_user)
         return
     if msg == '知识星球':
-        instance.send_image(os.path.join(WX_IMG_DIR, 'zsxq.jpeg'), toUserName=from_user['UserName'])
+        instance.send_image(os.path.join(WX_IMG_DIR, 'zsxq.jpeg'), toUserName=from_user)
         return
     if to_user == fh.meta['extra']['NickName']:
         if msg == 'm':
@@ -63,11 +66,12 @@ def file_helper(res):
         if fh.current_cmd:
             eval(f'fh.{fh.current_cmd}')(msg)
             return
-        # if msg == 'mass text ul':
-        #     return fh.mass_text_ul(msg)
-        # else:
-        #     return
 
 
-instance.auto_login(hotReload=True, statusStorageDir=os.path.join(TMP_DIR, 'wx_instance.pkl'))
-instance.run()
+if __name__ == '__main__':
+    instance.auto_login(
+        hotReload=True, enableCmdQR=2,
+        statusStorageDir=os.path.join(TMP_DIR, 'wx_instance.pkl'),
+        picDir=os.path.join(TMP_DIR, 'QR.png')
+    )
+    instance.run()

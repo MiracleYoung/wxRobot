@@ -5,3 +5,4 @@
 __author__ = 'MiracleYoung'
 
 from .misc import *
+from .logger import *
