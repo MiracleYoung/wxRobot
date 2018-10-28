@@ -4,7 +4,6 @@
 
 __author__ = 'MiracleYoung'
 
-from .base import *
 from .filehelper import *
 from .friend import *
 from .mixin import *

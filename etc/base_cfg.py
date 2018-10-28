@@ -15,7 +15,7 @@ DEFAULT_LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'standard': {
-            'format': '%(asctime)s - %(filename)s[%(lineno)d] - %(levelname)s : %(message)s'
+            'format': '%(asctime)s - %(threadName)s - %(filename)s[%(lineno)d] - %(levelname)s : %(message)s'
         },
     },
     'handlers': {

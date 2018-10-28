@@ -4,11 +4,16 @@
 # @Author  : MiracleYoung
 # @File    : main.py
 
+import sys, os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from itchat.content import *
 
 from core import fh, friend
-from utility import *
+from utility.logger import logger
+from utility.misc import g_is_open
+from utility.exc import *
 from etc import *
 
 is_open = False  # 全局变量，开启robot开关
@@ -34,11 +39,13 @@ def friends(res):
             else:
                 instance.set_alias(username, f'python专栏-{nickname}')
             instance.send_msg(f'添加好友: {nickname} 成功。', 'filehelper')
+            logger.info(f'添加好友成功: {nickname}')
         else:
-            logger.info(f'添加好友失败: {nickname}')
-
+            raise AddFriend(f'msg: {msg}, username: {username}, nickname: {nickname}')
+    except AddFriend:
+        logger.error(f'添加好友失败: {nickname}', exc_info=True)
     except Exception:
-        pass
+        logger.error(f'friends error', exc_info=True)
 
 
 @instance.msg_register([TEXT], isFriendChat=True)
@@ -74,4 +81,5 @@ if __name__ == '__main__':
         statusStorageDir=os.path.join(TMP_DIR, 'wx_instance.pkl'),
         picDir=os.path.join(TMP_DIR, 'QR.png')
     )
+
     instance.run()

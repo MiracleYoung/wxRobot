@@ -7,6 +7,7 @@ __author__ = 'MiracleYoung'
 import functools
 
 from etc import instance, is_open
+from utility.logger import logger
 
 __all__ = ['g_is_open']
 
@@ -21,10 +22,12 @@ def g_is_open(fn):
         if msg == 'ro':
             is_open = True
             instance.send_msg('Miracle 微信机器人已开启', to_user)
+            logger.info(f'Miracle 微信机器人已开启')
             return
         if msg == 'rc':
             is_open = False
-            instance.send_msg('Miracle 微信机器人已开启', to_user)
+            instance.send_msg('Miracle 微信机器人已关闭', to_user)
+            logger.info(f'Miracle 微信机器人已关闭')
             return
         if is_open:
             return fn(*args, **kwargs)

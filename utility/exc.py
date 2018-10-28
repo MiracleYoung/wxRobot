@@ -9,5 +9,21 @@ class WXException(Exception):
     pass
 
 
+class ContactError(WXException):
+    pass
+
+
+class AddFriend(ContactError):
+    pass
+
+
+class MsgError(WXException):
+    pass
+
+
+class MassMsgError(MsgError):
+    pass
+
+
 class CMDError(WXException):
     pass

@@ -6,19 +6,29 @@ __author__ = 'MiracleYoung'
 
 import functools, time, random, threading
 
-from core import *
+from core.base import BaseHandle
 from etc.wx_cfg import RESTRICT_GROUP, LIMIT_GROUP, instance
-from utility import logger
+from utility.logger import logger
+from utility.exc import *
 
 __all__ = ['fh']
 
 
 class FileHelper(BaseHandle):
+    '''
+    object:
+        - ul: unlimit
+        - l: limit
+        - r: restrict
+    '''
     _usage = '''
     Miracle wxRobot 操作说明
     ro: 开启机器人
     rc: 关闭机器人
     <action> <type> <object>: 指令集，例如,mass text ul
+    action: mass, single
+    type: text, article, file, image,
+    object: ul, l, r
     '''
 
     def __init__(self):
@@ -44,20 +54,18 @@ class FileHelper(BaseHandle):
             }
         }
         self._th_update = threading.Thread(target=self._update_meta, args=(), daemon=True, name='Thead-UpdateGroup')
-        self.auto_update_groups()
+        self._th_update.start()
         self._th_round = threading.Thread(daemon=True, name='Thread-Round')
 
     @property
     def meta(self):
         return self._meta
 
-    def auto_update_groups(self):
-        self._th_update.start()
-
     def _update_meta(self):
         '''
         初始化限时推送的群组
         '''
+        _cn = 0
 
         def _filter_restrict_groups(group):
             for limit in RESTRICT_GROUP:
@@ -83,6 +91,11 @@ class FileHelper(BaseHandle):
 
         while True:
             time.sleep(30)
+            # 自动刷新，防止微信掉线
+            # _cn += 300
+            # if _cn // 1800 == 1:
+            #     instance.send_msg('自动刷新', self._meta['extra']['UserName'])
+            #     _cn = 0
             try:
                 _all = instance.get_chatrooms(update=True)
                 self._meta['obj']['l'] = list(filter(_filter_limit_groups, _all))
@@ -95,13 +108,19 @@ class FileHelper(BaseHandle):
                 self._meta['obj']['l'] = []
                 self._meta['obj']['ul'] = []
                 self._meta['obj']['r'] = []
+            finally:
+                logger.info(f"Limit group: {len(self._meta['obj']['l'])}, "
+                            f"Unlimit group: {len(self._meta['obj']['ul'])}, "
+                            f"Restrict group: {len(self._meta['obj']['r'])}")
+            time.sleep(270)
 
     def update_cmd(self, cmd):
         try:
             _action, _reply, _obj = cmd.split('_')
             self._meta['action'][_action] = True
-        except (ValueError, KeyError) as e:
-            logger.error(f'cmd is wrong: {cmd}', exc_info=e)
+        except (ValueError, KeyError):
+            instance.send_msg(f'输入的指令有误，请重新输入.\n {self._usage}', self._meta['extra']['UserName'])
+            logger.error(f'cmd is wrong: {cmd}', exc_info=True)
             return
         self.current_cmd = cmd
         instance.send_msg(self._meta['reply'][_reply], self._meta['extra']['UserName'])
@@ -109,15 +128,29 @@ class FileHelper(BaseHandle):
     def _register_mass(func):
         @functools.wraps(func)
         def decorator(self, msg, *args, **kwargs):
-            _action, _reply, _obj = func.__name__.split('_')
-            if self._meta['action'][_action]:
-                _to_user = self._meta['obj'][_obj]
-                for _group in _to_user:
-                    instance.send_msg(msg, _group['UserName'])
-                    time.sleep(random.randrange(0, 20))
-                self._meta['action'][_action] = False
-                self._current_cmd = None
-                instance.send_msg('群发消息发送完毕', self._meta['extra']['UserName'])
+            try:
+                _action, _reply, _obj = func.__name__.split('_')
+                if self._meta['action'][_action]:
+                    # 群发之前先更新群组列表
+                    instance.send_msg('开始更新群组列表', self._meta['extra']['UserName'])
+                    logger.info('开始更新群组列表')
+                    self._update_meta()
+                    instance.send_msg('开始群发消息', self._meta['extra']['UserName'])
+                    logger.info('开始群发消息')
+
+                    _to_user = self._meta['obj'][_obj]
+                    for _group in _to_user:
+                        instance.send_msg(msg, _group['UserName'])
+                        time.sleep(random.randrange(0, 20))
+                    self._meta['action'][_action] = False
+                    self._current_cmd = None
+                    instance.send_msg('群发消息发送完毕', self._meta['extra']['UserName'])
+                    logger.info('群发消息发送完毕')
+                else:
+                    raise MassMsgError(f"msg: {msg}, split: {func.__name__.split('_')}")
+            except MassMsgError:
+                instance.send_msg('群发消息失败', self._meta['extra']['UserName'])
+                logger.error(f'群发消息失败', exc_info=True)
 
         return decorator
 
