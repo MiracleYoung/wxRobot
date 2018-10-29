@@ -1,8 +1,9 @@
 # By Miracle
-.idea/
+.idea/*
 *.pkl
 wxRobot.log
 error.log
+QR.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

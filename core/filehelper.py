@@ -4,12 +4,13 @@
 
 __author__ = 'MiracleYoung'
 
-import functools, time, random, threading
+import functools, time, random, threading, os
 
 from core.base import BaseHandle
 from etc.wx_cfg import RESTRICT_GROUP, LIMIT_GROUP, instance
 from utility.logger import logger
 from utility.exc import *
+from core.friend import friend
 
 __all__ = ['fh']
 
@@ -29,6 +30,8 @@ class FileHelper(BaseHandle):
     action: mass, single
     type: text, article, file, image,
     object: ul, l, r
+    alias remark friend: 为联系人设置备注
+    
     '''
 
     def __init__(self):
@@ -40,26 +43,24 @@ class FileHelper(BaseHandle):
             },
             'action': {
                 'mass': False,
-                'friend': False,
+                'alias': False,
+            },
+            'reply': {
+                'remark': '请输入备注前缀',
+                'text': '请输入要群发的消息',
+                'article': '请输入要群发的文章链接',
             },
             'obj': {
                 'ul': [],
                 'l': [],
                 'r': [],
-                'test': []
+                'test': [],
+                'friend': []
             },
-            'reply': {
-                'text': '请输入要群发的消息',
-                'article': '请输入要群发的文章链接',
-            }
         }
-        self._th_update = threading.Thread(target=self._update_meta, args=(), daemon=True, name='Thead-UpdateGroup')
+        self._th_update = threading.Thread(target=self.update_meta, args=(), daemon=True, name='Thead-UpdateGroup')
         self._th_update.start()
         self._th_round = threading.Thread(daemon=True, name='Thread-Round')
-
-    @property
-    def meta(self):
-        return self._meta
 
     def _update_meta(self):
         '''
@@ -89,13 +90,7 @@ class FileHelper(BaseHandle):
                     ret.append(group)
             return ret
 
-        while True:
-            time.sleep(30)
-            # 自动刷新，防止微信掉线
-            # _cn += 300
-            # if _cn // 1800 == 1:
-            #     instance.send_msg('自动刷新', self._meta['extra']['UserName'])
-            #     _cn = 0
+        def __update_meta():
             try:
                 _all = instance.get_chatrooms(update=True)
                 self._meta['obj']['l'] = list(filter(_filter_limit_groups, _all))
@@ -112,6 +107,18 @@ class FileHelper(BaseHandle):
                 logger.info(f"Limit group: {len(self._meta['obj']['l'])}, "
                             f"Unlimit group: {len(self._meta['obj']['ul'])}, "
                             f"Restrict group: {len(self._meta['obj']['r'])}")
+
+        __update_meta()
+
+    def update_meta(self):
+        while True:
+            time.sleep(30)
+            # 自动刷新，防止微信掉线
+            # _cn += 300
+            # if _cn // 1800 == 1:
+            #     instance.send_msg('自动刷新', self._meta['extra']['UserName'])
+            #     _cn = 0
+            self._update_meta()
             time.sleep(270)
 
     def update_cmd(self, cmd):
@@ -123,9 +130,14 @@ class FileHelper(BaseHandle):
             logger.error(f'cmd is wrong: {cmd}', exc_info=True)
             return
         self.current_cmd = cmd
-        instance.send_msg(self._meta['reply'][_reply], self._meta['extra']['UserName'])
+        instance.send_msg(f"{_action}: {self._meta['reply'][_reply]}", self._meta['extra']['UserName'])
 
     def _register_mass(func):
+        def _mass_msg(msg, to_user):
+            for _group in to_user:
+                instance.send_msg(msg, _group['UserName'])
+                time.sleep(random.randrange(0, 20))
+
         @functools.wraps(func)
         def decorator(self, msg, *args, **kwargs):
             try:
@@ -139,9 +151,10 @@ class FileHelper(BaseHandle):
                     logger.info('开始群发消息')
 
                     _to_user = self._meta['obj'][_obj]
-                    for _group in _to_user:
-                        instance.send_msg(msg, _group['UserName'])
-                        time.sleep(random.randrange(0, 20))
+                    _mass_msg(msg, _to_user)
+                    # self._th_send_msg = threading.Thread(target=_send_msg, args=(msg, _to_user), name='Thread-SendMsg')
+                    # self._th_send_msg.start()
+
                     self._meta['action'][_action] = False
                     self._current_cmd = None
                     instance.send_msg('群发消息发送完毕', self._meta['extra']['UserName'])
@@ -173,6 +186,17 @@ class FileHelper(BaseHandle):
     @_register_mass
     def mass_article_l(self, msg):
         pass
+
+    def alias_remark_friend(self, prefix='python专栏-'):
+        try:
+            users = [u for u in instance.get_friends() if not u['NickName'].startswith('python专栏')]
+            logger.info(f'开始修改备注名')
+            for u in users:
+                friend.set_alias(u['UserName'], u['NickName'], msg=None, prefix=prefix)
+            logger.info(f'修改备注名完成')
+        except:
+            instance.send_msg('修改备注名失败', self._meta['extra']['UserName'])
+            logger.error('修改备注名失败', exc_info=True)
 
 
 fh = FileHelper()

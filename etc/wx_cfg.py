@@ -8,13 +8,13 @@ import itchat
 
 UNLIMIT_GROUP = []
 LIMIT_GROUP = [
-    '猿媛牧场1群', '猿媛牧场2群', '淼淼之森', '格姗知识圈群', 'leoay社区', '限时推文', '限推'
+    'Python专栏', '淼淼之森', '格姗知识圈群', 'leoay社区', '限时推文', '限推'
 ]
 RESTRICT_GROUP = [
     '禁推文', '禁止推文'
 ]
 
-FRIEND_ASK_KW = [
+ADD_FRIENDS_BIZ_KW = [
     '合作', '商务',
 ]
 

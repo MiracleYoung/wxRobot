@@ -30,3 +30,7 @@ class BaseHandle:
     @property
     def usage(self):
         return self._usage
+
+    @property
+    def meta(self):
+        return self._meta

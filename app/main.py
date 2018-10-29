@@ -27,21 +27,7 @@ def friends(res):
         msg = res['RecommendInfo']['Content']
         username = res['RecommendInfo']['UserName']
         nickname = res['RecommendInfo']['NickName']
-        add_ret = friend.add_friend(username, 3)
-        if add_ret['BaseResponse']['ErrMsg'] == '请求成功':
-            logger.info(f'已添加好友: {nickname}')
-            instance.send_msg(friend.meta['extra']['welcome'], username)
-            # 修改备注
-            # 若有商务、合作等关键字，备注: 商务-
-            # 其他备注：Python专栏-
-            if friend.is_biz(msg):
-                instance.set_alias(username, f'商务-{nickname}')
-            else:
-                instance.set_alias(username, f'python专栏-{nickname}')
-            instance.send_msg(f'添加好友: {nickname} 成功。', 'filehelper')
-            logger.info(f'添加好友成功: {nickname}')
-        else:
-            raise AddFriend(f'msg: {msg}, username: {username}, nickname: {nickname}')
+        friend.add_friend(username, nickname, msg)
     except AddFriend:
         logger.error(f'添加好友失败: {nickname}', exc_info=True)
     except Exception:
@@ -57,12 +43,7 @@ def file_helper(res):
     if msg == 'm':
         instance.send_msg(fh.usage, from_user)
         return
-    if msg == '技术群':
-        instance.send_msg('晚些我会统一拉你们入群～', from_user)
-        return
-    if msg == '知识星球':
-        instance.send_image(os.path.join(WX_IMG_DIR, 'zsxq.jpeg'), toUserName=from_user)
-        return
+
     if to_user == fh.meta['extra']['NickName']:
         if msg == 'm':
             return fh.usage
@@ -73,11 +54,15 @@ def file_helper(res):
         if fh.current_cmd:
             eval(f'fh.{fh.current_cmd}')(msg)
             return
+    else:
+        # 关键字回复
+        friend.kw_reply(msg, from_user)
 
 
 if __name__ == '__main__':
     instance.auto_login(
-        hotReload=True, enableCmdQR=2,
+        hotReload=True,
+        # enableCmdQR=2,
         statusStorageDir=os.path.join(TMP_DIR, 'wx_instance.pkl'),
         picDir=os.path.join(TMP_DIR, 'QR.png')
     )
