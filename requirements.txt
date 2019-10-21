@@ -6,5 +6,5 @@ itchat==1.2.32
 pypng==0.0.18
 PyQRCode==1.2.1
 requests==2.19.1
-urllib3==1.23
+urllib3==1.24.2
 wxpy==0.3.9.8
